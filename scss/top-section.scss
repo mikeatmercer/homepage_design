@@ -1,0 +1,10 @@
+.mhp-ts {
+    &-contents {
+        display:flex;
+        justify-content: space-between;
+        &-section {
+            width: calc(50% - 8px);
+        }
+    }
+
+}

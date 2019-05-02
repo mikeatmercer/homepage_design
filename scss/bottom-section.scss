@@ -1,0 +1,29 @@
+.mhp-bs {
+    margin-top: 28px;
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    &-mynews {
+        width: calc(50% + 8px + 0px + 224px);
+        &-header {
+            order: 1;
+        }
+        &-content {
+            order: 3;
+        }
+    }
+    &-morenews {
+        width: calc(100% - (50% + 8px + 0px + 224px + 16px));
+        &-header {
+            order: 2;
+        }
+        &-content {
+            order: 4; 
+        }
+    }
+    &-mynews-content {
+        display:flex;
+        flex-wrap: wrap;
+    }
+}

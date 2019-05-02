@@ -1,0 +1,173 @@
+.mhp-item {
+    display:block;
+    position:relative;
+    &:hover {
+        text-decoration: none;
+    }
+
+    $this: &;  
+    &-thumb {
+        position:relative;
+        width: 100%;
+        padding-top: 56.25%;
+        background-size: cover; 
+        background-position: center center;
+        &--avatar {
+            border-radius: 50%;
+            padding: 0;
+            &:after {
+                display:none !important;
+            }
+        }
+        // This is so that people can still click on the image / use the image as normal. If IE supported object-fit, we could wouldn't need the background image
+        
+        &-img {
+            position:absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            left: 0;
+            top: 0;
+        }
+        #{$this}:hover &:after {
+            display:block;
+            content: '';
+            position:absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to top, 
+                rgba(#00A8C8, .40) 0%, 
+                rgba(#00A8c8, .20) 30%,
+                transparent 100%
+            );
+        }
+    }
+    &-text {
+        padding: 16px;
+        &-meta {
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-bottom: 4px;
+            font-size: 11px;
+            color: #808080;
+            > * {
+                //overflow: hidden;
+                //white-space: nowrap;
+                //text-overflow: ellipsis;
+                &:not(:first-child) {
+                    margin-left: 6px;
+                }
+            }
+            &-topic {
+                color: black;
+                flex-shrink: 0;
+                text-transform: uppercase;
+            }
+            &-date {
+                color: #808080;
+                flex-shrink: 1;
+            }
+        }
+        &-h2 {
+            color: #005c96;
+            font-weight: normal;
+            line-height: 22px;
+            font-size: 14px;
+            &--large {
+                font-size: 16px;
+            }
+            #{$this}:hover & {
+                text-decoration: underline;
+            }
+        }
+    }
+    &--featured {
+        display:flex;
+        &:not(:first-child) {
+            border-top: 2px solid white; 
+        }
+       #{$this}-thumb {
+           width: 224px;
+           padding: 0;
+           height: (224px * .5625);
+       } 
+       #{$this}-text {
+           flex: 1;
+       }
+    }
+
+    
+    &--bs {
+        
+        display:flex;
+        align-items: flex-start;
+        padding: 36px 16px 16px 16px;
+        box-sizing: border-box;
+        &--mynews {
+            width: 50%;
+            &:not(:nth-child(1)):not(:nth-child(2)) {
+                border-top: 2px solid white; 
+            }
+            &:nth-child(odd) {
+                border-right: 1px solid white; 
+            }
+            &:nth-child(even) {
+                border-left: 1px solid white; 
+            }
+            &:nth-child(odd):last-child {
+                border-right-width: 2px;
+                width: calc(50% + 1px);
+                &:after {
+                    display: block;
+                    content: '';
+                    position:absolute;
+                    width: 100%; 
+                    height: 2px;
+                    background: white;
+                    right: -100%;
+                    top: -2px
+                }
+            }
+        }
+        
+        &--morenews {
+            width: 100%;
+            border-bottom: 2px solid white;
+            &:last-child {
+                border: 0;
+            }
+        }
+        #{$this}-thumb {
+            width: 80px;
+            padding: 0;
+            height: (80px * .5625);
+            order: 3;
+            margin-left: 12px;
+            &--avatar {
+                width: 45px;
+                height: 45px;
+            }
+        }
+        #{$this}-text {
+            padding: 0 0 0 0px;
+            order: 2;
+            margin: 0;
+            height:45px;
+            flex: 1;
+            &-meta {
+                box-sizing: border-box;
+                position:absolute;
+                left: 0;
+                top: 16px;
+                width: 100%;
+                padding: 0 16px;
+            }
+        }
+        
+        
+    }
+}

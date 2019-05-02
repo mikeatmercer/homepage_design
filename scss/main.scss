@@ -1,0 +1,16 @@
+//REMOVING MERCERLINK JUNK / SCAFFOLD
+#sideNavBox {
+    display:none;
+}
+#contentBox {
+    margin-left: 0;
+}
+#ml_new_homepage {
+    width: 1000px;
+}
+@import 'top-section';
+@import 'bottom-section';
+@import 'header';
+@import 'card';
+@import 'item';
+@import 'cta';

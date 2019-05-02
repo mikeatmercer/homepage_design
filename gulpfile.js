@@ -3,7 +3,7 @@ var gulp = require('gulp'),
     postcss = require('gulp-postcss'),
     autoprefixer = require('autoprefixer');
 
-var dest = ""
+var dest = "U:\\";
 
 gulp.task('html', function() {
 

@@ -1,0 +1,42 @@
+.mhp-header {
+    margin-bottom: 4px;
+    &-h1 {
+        font-weight: bold;
+        color: black !important;
+        font-size: 18px;
+        line-height: normal !important;
+        margin-right: 8px;
+        display:inline-block;
+        &--large {
+            font-size: 22px;
+        }
+    }
+    &-button {
+        text-transform: uppercase;
+        font-size: 12px;
+        background: none;
+        box-shadow: none;
+        color: #005c96;
+        font-weight: normal;
+        padding: 0;
+        line-height: normal;
+        font-family: inherit;
+        cursor: pointer; 
+        border: 0;
+        &:hover {
+            text-decoration: underline;
+            background: none;
+        }
+        &--preferences {
+            margin-left: 24px;
+        }
+        &-icon {
+            fill:currentColor;
+            display:inline-block;
+            vertical-align: middle;
+            width: 20px;
+            height: 20px;
+            margin-right: 4px;
+        }
+    }
+}
