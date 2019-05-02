@@ -21,5 +21,8 @@
     "gulp": "^4.0.1",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.2"
+  },
+  "devDependencies": {
+    "tar": ">=4.4.2"
   }
 }
