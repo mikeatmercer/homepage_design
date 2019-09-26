@@ -1,5 +1,5 @@
 .mhp-bs {
-    margin-top: 28px;
+    margin-top: 24px;
     display:flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -8,7 +8,6 @@
         width: calc(50% - 8px);
     }
     &-mynews {
-        //width: calc(50% + 8px + 0px + 224px);
         &-header {
             order: 1;
         }
@@ -17,7 +16,6 @@
         }
     }
     &-morenews {
-        //width: calc(100% - (50% + 8px + 0px + 224px + 16px));
         &-header {
             order: 2;
         }

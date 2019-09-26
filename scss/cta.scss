@@ -1,9 +1,14 @@
 .mhp-cta {
-    margin-top: 16px;
+    //margin-top: 16px;
     background: $light-blue-bg;
     height: 81px;
+    padding: 16px;
+    height: 99px;
     &-text {
         padding: 12px 16px;
+    }
+    &:not(:first-child) {
+        border-color: $highlight-color
     }
     &-subtitle {
         color:black;

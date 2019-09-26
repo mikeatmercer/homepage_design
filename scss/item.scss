@@ -1,9 +1,11 @@
 .mhp-item {
     display:block;
     position:relative;
+    $root: &;
     &:hover {
         text-decoration: none;
     }
+    
 
     $this: &;  
     &-thumb {
@@ -53,7 +55,7 @@
             white-space: nowrap;
             margin-bottom: 4px;
             font-size: 11px;
-            color: #808080;
+            color: $helper-text-color;
             > * {
                 //overflow: hidden;
                 //white-space: nowrap;
@@ -105,12 +107,13 @@
         
         display:flex;
         align-items: flex-start;
-        padding: 36px 16px 16px 16px;
+        padding: 16px;
         box-sizing: border-box;
         &--mynews {
             width: 100%;
-            &:not(:first-child) {
-                border-top: 2px solid white; 
+            border-top: 2px solid white; 
+            &:first-child {
+                border-top: 0;
             }
             /*
             &:not(:nth-child(1)):not(:nth-child(2)) {
@@ -147,32 +150,36 @@
             }
         }
         #{$this}-thumb {
-            width: 80px;
+            width: 104px;
             padding: 0;
-            height: (80px * .5625);
+            height: (104px * .5625);
             order: 3;
             margin-left: 12px;
             &--avatar {
-                width: 45px;
-                height: 45px;
+                width: 60px;
+                height: 60px;
             }
         }
         #{$this}-text {
             padding: 0 0 0 0px;
             order: 2;
             margin: 0;
-            height:45px;
+            height:(45px + 18px);
             flex: 1;
+            min-width: 0;
             &-meta {
                 box-sizing: border-box;
-                position:absolute;
-                left: 0;
-                top: 16px;
-                width: 100%;
-                padding: 0 16px;
+
             }
         }
         
         
+    }
+    &--cta {
+        background: $light-blue-bg;
+        border-color: $highlight-color; 
+        #{$root}-text-meta-date { 
+            display:none; 
+        }
     }
 }

@@ -1,0 +1,48 @@
+.mhp-ql {
+    margin-bottom: 24px;
+    $perrow: 5;
+    $spacing: 8px;
+    &-contents {
+        display:flex;
+        flex-wrap: wrap;
+        padding: $spacing $spacing 0 $spacing;
+    }
+    &-item {
+        
+        @at-root {
+            button#{&} {
+                margin: 0;
+            }
+            button#{&} {
+                padding: 0 12px;
+                line-height: 28px;
+                margin-bottom:  $spacing;
+                border: 0;
+                background: white; 
+                font-size: 14px;
+                color: $link-color;
+                border-radius: 2px;  
+                box-shadow: 0 0 2px rgba(black, .02), 0 1px 2px rgba(black, .06), 0 0 2px rgba(black, .08);
+                &:hover {
+                    background: #E2F6FF ;
+                }
+                cursor: pointer; 
+                width: calc( (100% / #{$perrow}) - ( (#{$spacing} * #{($perrow - 1)}  ) / #{$perrow} ) );
+                &:not(:nth-child(#{$perrow}n + 1)) {
+                    margin-left: ($spacing / 2);
+                }
+                &:not(:nth-child(#{$perrow}n + #{$perrow})) {
+                    margin-right:  ($spacing / 2);
+                }
+                > span {
+                    display:block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+        }
+        
+        
+    }
+}
