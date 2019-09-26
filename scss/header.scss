@@ -12,11 +12,17 @@
         }
     }
     &-button {
+        @at-root {
+            a#{&}, button#{&} {
+                color: $link-color;
+            }
+        }
+        
         text-transform: uppercase;
         font-size: 12px;
         background: none;
         box-shadow: none;
-        color: #005c96;
+        color: $link-color;
         font-weight: normal;
         padding: 0;
         line-height: normal;

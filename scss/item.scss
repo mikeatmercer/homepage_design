@@ -38,8 +38,8 @@
             width: 100%;
             height: 100%;
             background-image: linear-gradient(to top, 
-                rgba(#00A8C8, .40) 0%, 
-                rgba(#00A8c8, .20) 30%,
+                rgba($highlight-color, .40) 0%, 
+                rgba($highlight-color, .20) 30%,
                 transparent 100%
             );
         }
@@ -68,12 +68,12 @@
                 text-transform: uppercase;
             }
             &-date {
-                color: #808080;
+                color: $helper-text-color;
                 flex-shrink: 1;
             }
         }
         &-h2 {
-            color: #005c96;
+            color: $link-color;
             font-weight: normal;
             line-height: 1.4;
             font-size: 14px;
