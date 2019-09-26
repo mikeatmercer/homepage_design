@@ -2,17 +2,14 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     postcss = require('gulp-postcss'),
     autoprefixer = require('autoprefixer'),
-    include = require("gulp-file-include");
+    fileinclude = require("gulp-html-tag-include");
 
 var dest = "U:\\";
 
 gulp.task('html', function() {
 
     return gulp.src(['main.html'])
-            .pipe(fileinclude({
-                prefix: '@@',
-                basepath: '@file'
-            }))
+            .pipe(fileinclude())
           .pipe(gulp.dest(dest));
 });
 

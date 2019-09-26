@@ -108,7 +108,11 @@
         padding: 36px 16px 16px 16px;
         box-sizing: border-box;
         &--mynews {
-            width: 50%;
+            width: 100%;
+            &:not(:first-child) {
+                border-top: 2px solid white; 
+            }
+            /*
             &:not(:nth-child(1)):not(:nth-child(2)) {
                 border-top: 2px solid white; 
             }
@@ -132,6 +136,7 @@
                     top: -2px
                 }
             }
+            */
         }
         
         &--morenews {
