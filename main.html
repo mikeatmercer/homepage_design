@@ -180,3 +180,20 @@
 
 
 </div>
+
+
+<div style="display:none;" id="footer-contents">
+<include src="./footer.html"></include>
+</div>
+
+<script>
+    $(document).ready(function(){
+        var footerC = $("#footer-contents").html();
+        $("#m-footer .links.group .group").each(function(i,e){
+            console.log(Math.round($(e).find("li").length / 3));
+        })
+        $('#m-footer').html(footerC);
+
+    })
+
+</script>

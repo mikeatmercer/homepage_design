@@ -1,0 +1,127 @@
+#m-footer {
+    background: #003865;
+    * {
+        box-sizing: border-box;
+    }
+    .mf {
+        max-width: 1088px;
+        padding: 48px 32px;
+        margin: 0 auto; 
+        &-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &-mmc-logo img {
+            width: 215px;
+        }
+        &-social {
+            display: flex;
+            > a {
+                width: 24px;
+                height: 24px;
+                margin-left: 32px;
+                color: white !important;
+                svg {
+                    width: 24px;
+                    height: 24px;
+                    display:block;
+                    fill: currentColor;
+                }
+            }
+        }
+        &-menu {
+            margin-top: 32px;
+            display: flex;
+            align-items: flex-start;
+            &-section {
+                &:not(:first-child) {
+                    margin-left:72px;
+                }
+                &-holder {
+                    display:flex;
+                }
+                &-in {
+                    &:nth-child(even) {
+                        padding-left: 24px;
+                    }
+                    &:nth-child(odd) {
+                        padding-right: 24px;
+                    }
+                    > a {
+                        display:block;
+                        color:white !important;
+                        font-size: 14px;
+                        line-height: (21/14);
+                        &:not(:first-child) {
+                            margin-top: 8px;
+                        }
+                    }
+                }
+                &-h2 {
+                    color:white; 
+                    font-weight: bold;
+                    font-size: 16px;
+                    line-height: (21 / 16);
+                    margin-bottom: 16px;
+                }
+                
+            }
+        }
+        &-sub {
+            border-top: 1px solid #005A8E;
+            margin-top: 32px;
+            display:flex;
+            justify-content: space-between;
+            align-items: baseline;
+            &-opcos {
+                display: flex;
+                position: relative;
+                > a {
+                    padding-top: 12px;
+                    position:relative;
+                    color:white !important;
+                    font-size: 14px;
+                    &.current {
+                        font-weight: bold;
+                        &:before {
+                            display:block;
+                            content:'';
+                            position:absolute;
+                            left: 0;
+                            top: 0;
+                            height: 2px;
+                            width: 100%;
+                            background:  #009DE0;
+                        }
+                    }
+                    &:not(:first-child) {
+                        margin-left:24px;
+                    }
+                }
+            }
+            &-links {
+                display:flex;
+                > a {
+                    font-size: 14px;
+                    color: white !important;
+                    &:not(:last-child) {
+                        margin-right: 16px;
+                    }
+                }
+            }
+        }
+        &-copy, &-policy {
+            margin-top: 48px;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color:  #A3BAD4;
+            text-transform: uppercase;
+        }
+        &-policy {
+            text-transform: none;
+        }
+    }
+}

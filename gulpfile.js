@@ -20,12 +20,17 @@ gulp.task('css', function(){
     .pipe(gulp.dest(dest));
 });
 
+gulp.task('dump', function(){
+    return gulp.src('assets/**/*')
+      .pipe(gulp.dest(dest));
+});
 
-gulp.task('build', gulp.series('css','html'));
+
+gulp.task('build', gulp.series('css','html','dump'));
 
 
 gulp.task('watch', function() {
-
+    gulp.watch(['assets/**/*'], gulp.series('dump'));
   
     gulp.watch(['*.html'], gulp.series('html'));
   
