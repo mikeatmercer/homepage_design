@@ -181,19 +181,129 @@
 
 </div>
 
+<div id="empty-state-contents" style="display:none;">
+    <div class="mhp-empty-state">
+       <div class="mhp-empty-state-container">
+            <img class="mhp-empty-state-img" src="http://mercerlink-ua.mercer.com/homepage_redesign_html/GearIcon@3x.png" />
+            <h2 class="mhp-empty-state-h2">Subscribe to More Topics</h2>
+            <div class="mhp-empty-state-copy">Subscribe to more topics to see more news. Autosubscribe to see all topics related to your line of business and your region. You can change what news you see any time at &ldquo;Edit My News Preferences.&rdquo;</div>
+            <div class="mhp-empty-state-buttons">
+                <button class="mhp-empty-state-btn mhp-empty-state-btn--alt">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg> Choose Topics
+                </button>
+                <button class="mhp-empty-state-btn ">
+                        Autosubscribe
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="empty-states" style="position:fixed; right: 24px; bottom: 24px; z-index: 9999;">
+    <button class="empty-swapper"  data-amt="5">0 items</button>
+    <button class="empty-swapper"  data-amt="4">1 item</button>
+    <button class="empty-swapper"  data-amt="3">2 items</button>
+    <button class="empty-swapper"  data-amt="0">3+ items</button>
+</div>
+
 
 <div style="display:none;" id="footer-contents">
 <include src="./footer.html"></include>
 </div>
-
+  
 <script>
     $(document).ready(function(){
+        return false; 
+        function creater(i,e) {
+           var title = $(e).find(" li:first-child").text();
+           var items = $(e).find( "li:not(:first-child)");
+           var collengths = [0,0];
+           var current = 0;
+           $(items).each(function(i,e){
+               collengths[current]++;
+               current++;
+               if(current == collengths.length) {
+                   current = 0;
+               }
+           });
+           
+           var section = $("<div />", {class: "mf-menu-section"});
+           $(section).append("<h2 class='mf-menu-section-h2'>"+title+"</h2>");
+           var sectionHolder = $("<div />", {class: "mf-menu-section-holder"});
+           var currentstep = 0;
+           $(collengths).each(function(index,e){
+               if(e === 0) {
+                   return; 
+               }
+               var int = $("<div />", {class: "mf-menu-section-in"});
+               for(var i = 0; i < e; i++) {
+                   var menui = $(items[currentstep]);
+                   $(int).append("<a target='_blank' href='"+$(menui).find("a").attr("href")+"'>"+$(menui).text()+ " </a>")
+                   currentstep++;
+               }
+               $(sectionHolder).append(int);
+           })
+           $(section).append(sectionHolder);
+           $("#footer-contents").find(".mf-menu").append(section);
+        }
+        
+        var lSections = $("#m-footer").find(".links.group .group");
+     
+        $(lSections).each(creater)
         var footerC = $("#footer-contents").html();
-        $("#m-footer .links.group .group").each(function(i,e){
-            console.log(Math.round($(e).find("li").length / 3));
-        })
         $('#m-footer').html(footerC);
 
+    });
+    $(document).ready(function(){
+        
+
+        var empty = false; 
+        var myNewsContent = $(".mhp-bs-mynews-content").html();
+        function emptySwapper() {
+            var mhpmn = $(".mhp-bs-mynews-content");
+            if(!empty) {
+                $("#empty-swapper").text("Hide Empty State");
+                $(mhpmn).html($("#empty-state-contents").html());
+                empty = true;
+            } else {
+                $("#empty-swapper").text("Show Empty State");
+                $(mhpmn).html(myNewsContent);
+                empty = false; 
+            }
+        }
+        $("#empty-swapper").on("click",function(e){
+            e.preventDefault(); 
+            emptySwapper();
+        });
+       // emptySwapper();
+        $("#empty-states button").on("click",function(e){
+            e.preventDefault();
+            $(".mhp-bs-mynews-content .mhp-item").show();
+            $(".mhp-bs-mynews-content").removeClass("mhp-bs-mynews-content--empty");
+            $(".mhp-bs-mynews-content").find(".mhp-empty-state").remove();
+            $(".mhp-empty-state").removeClass('full');
+            $(".mhp-empty-state img").removeClass('no-img');
+            var int = parseInt($(this).attr("data-amt"));
+            var emptyHTML = $("#empty-state-contents").html();
+            console.log(int);
+            for(i = int; i > 0; i--) {
+      
+                $(".mhp-bs-mynews-content .mhp-item:nth-child("+i+")").hide();
+            }
+            
+            if(int > 0) {
+                $(".mhp-bs-mynews-content").addClass("mhp-bs-mynews-content--empty");
+                $(".mhp-bs-mynews-content").append(emptyHTML);
+                if(int == 5) {
+                    $(".mhp-empty-state").addClass('full');
+                }
+                if(int < 4) {
+                    $(".mhp-empty-state img").addClass('no-img')
+                }
+            }
+        })
+        $("#empty-states button:first-child").click();
     })
 
 </script>
+

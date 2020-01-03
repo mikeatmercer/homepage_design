@@ -1,0 +1,22 @@
+#m-footer #m-footerTop {
+    display:flex; 
+}
+#m-footer .mediaFotter {
+    float: none; 
+    width: auto; 
+    margin-right: 72px; 
+}
+#m-footer #m-footerTop > .links {
+    float: none;
+    display:flex;  
+    width: auto !important; 
+}
+#m-footer .links > div:not(:first-child) {
+    margin-left: 56px;
+   // width: calc( (100% / 3) - (48px / 5) ); 
+}
+#m-footer .links ul.group {
+    float: none; 
+    margin-left: 0; 
+    width: auto !important; 
+}
